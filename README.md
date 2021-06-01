@@ -1,3 +1,2 @@
-# HashGraph_Client
 
-Implementation of Hashgraph BFT Client Side
+A Golang with ZeroMQ implementation of the client for the algorithm:
