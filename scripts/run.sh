@@ -1,12 +1,20 @@
-#!/bin/bash
+# Compile Hashgraph Server and
+# execute N servers in the background
 
-N=10
-CLIENTS=2
+./compileHashGraphBFT.sh
+
+cd ~/go/bin/logs/error/
+rm *
+cd ~/go/bin/logs/out/
+rm *
+cd ~/go/bin/
+
+N=4
+CLIENTS=10
+SCE=0
 REM=0
 
-go install BFTWithoutSignatures_Client
-
-for (( ID=0; ID<$CLIENTS; ID++ ))
+for (( ID=0; ID<$N; ID++ ))
 do
-	BFTWithoutSignatures_Client $ID $N $REM &
+	HashGraphBFT $ID $N $CLIENTS $SCE $REM &
 done
